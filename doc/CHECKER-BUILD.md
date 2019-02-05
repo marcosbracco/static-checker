@@ -20,13 +20,11 @@ I have git and cmake in my system PATH. For MSCV and Python I use a bat file to 
 
 I put all bat files at my project root that is `C:\node-dot-cpp\static-checker`, you can use any root folder but update scripts in this tutorial to match your system.
 
-I use `env.bat` with the following:
+I use `build-env.bat` with the following:
 
-	title node-dot-cpp
+	title build
 
 	set PATH=C:\Python27;C:\Python27\Scripts;%PATH%
-	set PATH=C:\node-dot-cpp\static-checker\llvm\utils\lit;%PATH%
-	set PATH=C:\node-dot-cpp\static-checker\build\release\bin;%PATH%
 
 	%ComSpec% /k ""D:\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat""
 
@@ -37,9 +35,9 @@ You will need to change paths to match your system.
 Build
 -----
 
-When you double click on `env.bat` you will get a console, with python and VC command line environmnet.
+When you double click on `build-env.bat` you will get a console, with python and VC command line environmnet.
 
-First clone and checkout everything:
+First clone and checkout everything,
 
 	static-checker> git clone -b release_70 https://github.com/llvm-mirror/llvm.git
 	static-checker> cd llvm\tools
@@ -72,9 +70,20 @@ You can also build with `ninja` or generate Visual Studio project files, or any 
 Test
 ----
 
-Then, to run automated tests,
+I use a separate `test-env.bat` file to set up environmnet to run the tool and tests.
 
-	static-checker> llvm-lit.py llvm\tools\clang\tools\nodecpp-checker\test\nodecpp-checker
+	title test
+
+	set PATH=C:\Python27;C:\Python27\Scripts;%PATH%
+	set PATH=C:\node-dot-cpp\static-checker\llvm\utils\lit;%PATH%
+	set PATH=C:\node-dot-cpp\static-checker\build\release\bin;%PATH%
+
+	%ComSpec% /k ""D:\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat""
+
+
+Then, to run automated tests just use `run.bat` script
+
+	static-checker> run.bat
 
 If you are really lucky, will see a bunch of test files, with the 'PASS' legend on the left :)
 

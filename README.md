@@ -19,13 +19,11 @@ Build (Windows)
 Building clang based tools works better when source code is placed inside the llvm/clang source tree.
 Because of that, this repository has no code, but acts as the root place for checkout of llvm/clang source tree, and then checkout the repository with the tool code inside that.
 
-The easy way is using `checkout.bat` and `build.bat` scripts at this repository, but require your PATH environment can access git, cmake, python 2.7 and Visual Studio Command Line. What I find the most convenient is to create a file `env.bat` in this root folder (will be ignored by git) that sets the environment. Please update paths to reflect your system and needs.
+The easy way is to checkout this project and then using `checkout.bat`, `build.bat` and `test.bat` scripts. But this require your PATH environment can access git, cmake, python 2.7 and Visual Studio Command Line. What I find the most convenient is to create a file `build-env.bat` that set ups the environment, and put it in this root folder (git will ignore it). Then double click on `build-env.bat` will pop up a console with the environment correctly set. Please update paths to reflect your system and needs.
 
-	title node-dot-cpp
+	title build
 
 	set PATH=C:\Python27;C:\Python27\Scripts;%PATH%
-	set PATH=C:\node-dot-cpp\static-checker\llvm\utils\lit;%PATH%
-	set PATH=C:\node-dot-cpp\static-checker\build\release\bin;%PATH%
 
 	%ComSpec% /k ""C:\Program Files(x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat""
 
