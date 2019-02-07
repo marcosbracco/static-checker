@@ -11,14 +11,14 @@ Requirements
 ------------
 
 0. some git client
-1. MSVC 2017
+1. Visual Studio 2017 (C++ command line tools)
 2. Cmake (I have 3.13.2, but any recent version should work) https://cmake.org/
 3. Python 2.7 ( Version 3.x will not work, must be 2.7.x) https://www.python.org/downloads/release/python-2715/
 
-I have git and cmake in my system PATH. For MSCV and Python I use a bat file to set up environment variables. This is better because it allows to have more than one version installed and have scripts to set environment for each version.
+I have git and cmake in my system PATH. For MSCV and Python I use a bat file to set up environment variables. This is better because it allows to have more than one version installed and have scripts to set environment for each version. Also will help if you have already installed Python 3 in your environment and don't want to break things by setting global PATH to Python 2.7
 
 
-I put all bat files at my project root that is `C:\node-dot-cpp\static-checker`, you can use any root folder but update scripts in this tutorial to match your system.
+I put all bat files at my project root that is `C:\node-dot-cpp\static-checker`, you can use any root folder but update scripts in this tutorial to match your setup.
 
 I use `build-env.bat` with the following:
 
@@ -44,7 +44,7 @@ First clone and checkout everything,
 	static-checker\llvm\tools> git clone -b node-dot-cpp_70 https://github.com/node-dot-cpp/clang.git
 	static-checker\llvm\tools> cd clang\tools
 	static-checker\llvm\tools\clang\tools> git clone -b release_70 https://github.com/llvm-mirror/clang-tools-extra.git extra
-	static-checker\llvm\tools\clang\tools> git clone https://github.com/node-dot-cpp/nodecpp-checker.git
+	static-checker\llvm\tools\clang\tools> git clone https://github.com/node-dot-cpp/clang-tools-nodecpp.git nodecpp
 	static-checker\llvm\tools\clang\tools> cd ..\..\..\..
 
 
