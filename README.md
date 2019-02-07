@@ -1,4 +1,4 @@
-# nodecpp-checker
+# static-checker
 Tools for static check of C++ following rules of [__memory-safe-cpp__](https://github.com/node-dot-cpp/memory-safe-cpp)
 
 
