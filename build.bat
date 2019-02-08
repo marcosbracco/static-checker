@@ -1,14 +1,12 @@
 
-md build\release
-cd build\release
+md build\vs2017
+cd build\vs2017
 
-cmake -DCMAKE_BUILD_TYPE=Release -G "NMake Makefiles" ..\..\llvm
+cmake -Thost=x64 -G "Visual Studio 15 2017 Win64" ..\..\llvm
 
-nmake nodecpp-checker
-
-nmake nodecpp-safe-library
-
-nmake FileCheck
+msbuild.exe -property:Configuration=Release tools\clang\tools\nodecpp\src\nodecpp-checker\tool\nodecpp-checker.vcxproj
+msbuild.exe -property:Configuration=Release tools\clang\tools\nodecpp\src\nodecpp-safe-library\nodecpp-safe-library.vcxproj
+msbuild.exe -property:Configuration=Release utils\FileCheck\FileCheck.vcxproj
 
 cd ..\..
 
